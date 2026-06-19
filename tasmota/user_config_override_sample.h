@@ -78,7 +78,25 @@ Examples :
 #undef  WIFI_DNS
 #define WIFI_DNS            MY_DNS               // If not using DHCP set DNS IP address (might be equal to WIFI_GATEWAY)
 #endif
+#ifndef _USER_CONFIG_OVERRIDE_H_
+#define _USER_CONFIG_OVERRIDE_H_
 
+// PCF8574 mit vollen Input-Funktionen
+#define USE_PCF8574
+#define USE_PCF8574_SENSOR
+#define USE_PCF8574_DISPLAYINPUT
+
+// MCP230xx deaktivieren (Adresskonflikt)
+#ifdef USE_MCP230xx
+#undef USE_MCP230xx
+#endif
+
+// Adressbereich: ab 0x24
+#define PCF8574_ADDR1        0x24
+#define PCF8574_ADDR1_COUNT  4
+#define PCF8574_ADDR2_COUNT  0
+
+#endif  // _USER_CONFIG_OVERRIDE_H_
 #ifdef MY_DNS2
 #undef  WIFI_DNS2
 #define WIFI_DNS2           MY_DNS2              // If not using DHCP set DNS IP address (might be equal to WIFI_GATEWAY)
