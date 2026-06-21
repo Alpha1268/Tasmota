@@ -63,7 +63,6 @@ Examples :
 
 // You might even pass some parameters from the command line ----------------------------
 // Ie:  export PLATFORMIO_BUILD_FLAGS='-DUSE_CONFIG_OVERRIDE -DMY_IP="192.168.1.99" -DMY_GW="192.168.1.1" -DMY_DNS="192.168.1.1"'
-
 #ifdef MY_IP
 #undef  WIFI_IP_ADDRESS
 #define WIFI_IP_ADDRESS     MY_IP                // Set to 0.0.0.0 for using DHCP or enter a static IP address
@@ -78,35 +77,14 @@ Examples :
 #undef  WIFI_DNS
 #define WIFI_DNS            MY_DNS               // If not using DHCP set DNS IP address (might be equal to WIFI_GATEWAY)
 #endif
-#ifndef _USER_CONFIG_OVERRIDE_H_
-#define _USER_CONFIG_OVERRIDE_H_
 
-// PCF8574 mit vollen Input-Funktionen
-#define USE_PCF8574
-#define USE_PCF8574_SENSOR
-#define USE_PCF8574_DISPLAYINPUT
-
-// MCP230xx deaktivieren (Adresskonflikt)
-#ifdef USE_MCP230xx
-#undef USE_MCP230xx
-#endif
-
-// Adressbereich: ab 0x24
-#define PCF8574_ADDR1        0x24
-#define PCF8574_ADDR1_COUNT  4
-#define PCF8574_ADDR2_COUNT  0
-
-#endif  // _USER_CONFIG_OVERRIDE_H_
 #ifdef MY_DNS2
 #undef  WIFI_DNS2
 #define WIFI_DNS2           MY_DNS2              // If not using DHCP set DNS IP address (might be equal to WIFI_GATEWAY)
 #endif
 
 // !!! Remember that your changes GOES AT THE BOTTOM OF THIS FILE right before the last #endif !!!
+
 */
-
-
-
-
 
 #endif  // _USER_CONFIG_OVERRIDE_H_
